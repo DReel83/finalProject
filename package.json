@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/DReel83/finalproject/issues"
   },
-  "homepage": "https://github.com/DReel83/finalproject#readme"
+  "homepage": "https://github.com/DReel83/finalproject#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
