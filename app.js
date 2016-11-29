@@ -2,9 +2,16 @@
 var express = require('express');
 var app = express();
 
+// The path module is used to concatenate the paths.
+var path = require('path');
+
+//The following instructs Express to serve the from
+// the designated directory.
+app.use(express.static(path.join(__dirname, 'public')));
+
 // home page (index.html) route
 app.get('/', function(req, res){
-
+	res.sendFile(path.join(__dirname, 'views/index.html'));
 });
 
 // This route creates the shortened URL 
