@@ -15,7 +15,8 @@ function encode(num){
 		num = Math.floor(num / base);
 		encoded = alphabet[remainder].toString() + encoded;
 	}
-  return encoded;	
+	console.log(encoded);
+	return encoded;
 }
 
 //The decoding function converts the short URL into it's base10 integer 
@@ -29,6 +30,7 @@ function decode(str) {
 	    decoded += index * (Math.pow(base, power));
 	    str = str.substring(1);
 	}
+	console.log(decoded);
 	return decoded;
 }
 
