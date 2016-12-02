@@ -18,4 +18,6 @@ function encode(num){
   return encoded;	
 }
 
-// 
+//The decoding function converts the short URL into it's base10 
+//equivalent so the long URL can be retrieved from th DB.
+
