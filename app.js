@@ -1,6 +1,13 @@
 // require and call express.js
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+
+//Handles JSON 
+app.use(bodyParser.json());
+
+//Handles encoded URL's
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // The path module is used to concatenate the paths.
 var path = require('path');
