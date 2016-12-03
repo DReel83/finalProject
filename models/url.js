@@ -1,3 +1,7 @@
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+
 // The folllowing creates the counter schema with two fields
 // _id and seq 
 var CounterSchema = Schema({
