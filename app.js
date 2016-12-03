@@ -1,7 +1,11 @@
 // require and call express.js
-var express = require('express');
-var app = express();
+var express    = require('express');
+var app        = express();
 var bodyParser = require('body-parser');
+var mongoose   = require('mongoose');
+var config     = require('./config');
+var base58     = require('./base58.js');
+var Url        = require('./models/url');
 
 //Handles JSON 
 app.use(bodyParser.json());
@@ -24,7 +28,34 @@ app.get('/', function(req, res){
 // This route creates the shortened URL 
 // and returns it as well.
 app.post('/api/shorten', function(req, res){
+	//checks to see if the url has already been shortened.
+	var longUrl = req.body.url;
+	var shortUrl = '';
 
+	Url.findOne({long_url: longUrl}, function (err, doc){
+		if (doc){
+			shortUrl = config.webhost + base58.encode(doc._id);
+
+			res.send({'shortUrl': shortUrl});
+
+		} else {
+
+			var newUrl = Url({
+				long_url: longUrl
+			});
+
+			newUrl.save(function(err){
+				if (err){
+					console.log(err);
+				}
+
+				shortUrl = config.webhost + base58.encode(newUrl._id);
+
+				res.send({'shortUrl': shortUrl});
+			});
+		}
+
+	});
 });
 
 // This routes redirects the user to the long URL
