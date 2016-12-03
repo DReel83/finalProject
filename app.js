@@ -3,8 +3,8 @@ var express    = require('express');
 var app        = express();
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
-var config     = require('./config');
-var base58     = require('./base58.js');
+var config     = require('./public/assets/js/config.js');
+var base58     = require('./public/assets/js/base58.js');
 var Url        = require('./models/url');
 
 //Handles JSON 
@@ -62,6 +62,19 @@ app.post('/api/shorten', function(req, res){
 // associated with the short URL.
 app.get('/:encoded_id', function(req, res){
 
+	var basr58Id = req.params.encode_id;
+	var is = base58.decode(base58Id);
+
+	//Checks for prexiting URL
+	Url.findOne({_id: id}, function (err, doc){
+		if (doc) {
+			res.redirect(doc.long_url);
+
+
+		} else {
+			res.redirect(config.webhost);
+		}
+	});
 });
 
 // Create and define the sevrer
