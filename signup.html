@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shortr Link</title>
+
+  <!-- Set character set and view to  -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome Icons CDN -->
+  <script src="https://use.fontawesome.com/3efb463f56.js"></script>
+
+  <!-- Materialize Icons CDN -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Google fonts for Lato font (thin= lato:100 and light= lato:300) -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+  <!-- JQuery CDN -->
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+  <!-- Custom Style Sheet -->
+  <link rel="stylesheet" type="text/css" href="">
+
+</head>
+<body>
+	<div class="container">
+	<div class="row">
+    <form class="col s12" style="margin-top: 5%;">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="First Name" id="first_name" type="text" class="validate">
+          <!-- <label for="first_name"></label> -->
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="Last Name" id="last_name" type="text" class="validate">
+          <!-- <label for="last_name">Last Name</label> -->
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Email" id="email" type="email" class="validate">
+          <!-- <label for="email">Email</label> -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Password" id="password" type="password" class="validate">
+          <!-- <label for="password">Password</label> -->
+        </div>
+      </div>
+
+		<input type="checkbox" id="indeterminate-checkbox" />
+		      <label for="indeterminate-checkbox">Remember Me</label>
+		      <span class="right">
+		    <button class="btn waves-effect waves-light" id="submit" type="submit" name="action">Submit
+		    	<i class="material-icons right">send</i>
+		    </button>
+		    </span>
+		</form>
+		</div>
+	</div>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script> -->
+<script
+  src="http://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		$("#submit").click(function(){
+			$("button").click(function(){
+				var userData = $("form").serializeArray();
+				console.log(userData);
+			});
+			//alert("Success!");
+		});
+	});
+
+</script>
+</body>
+</html>
