@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
 var config     = require('./public/assets/js/config.js');
 var base58     = require('./public/assets/js/base58.js');
-var Url        = require('./models/url');
+var Url        = require('./models/url.js');
 
 //Handles JSON 
 app.use(bodyParser.json());
@@ -68,7 +68,7 @@ app.post('/api/shorten', function(req, res){
 app.get('/:encoded_id', function(req, res){
 
 	var base58Id = req.params.encode_id;
-	var is = base58.decode(base58Id);
+	var id = base58.decode(base58Id);
 
 	//Checks for prexiting URL
 	Url.findOne({_id: id}, function (err, doc){
