@@ -25,6 +25,11 @@ app.get('/', function(req, res){
 	res.sendFile(path.join(__dirname, 'views/index.html'));
 });
 
+// home page (index.html) route
+app.get('/', function(req, res){
+	res.sendFile(path.join(__dirname, 'views/signup.html'));
+});
+
 // This route creates the shortened URL 
 // and returns it as well.
 app.post('/api/shorten', function(req, res){
@@ -62,7 +67,7 @@ app.post('/api/shorten', function(req, res){
 // associated with the short URL.
 app.get('/:encoded_id', function(req, res){
 
-	var basr58Id = req.params.encode_id;
+	var base58Id = req.params.encode_id;
 	var is = base58.decode(base58Id);
 
 	//Checks for prexiting URL
