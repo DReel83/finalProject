@@ -1,1 +1,27 @@
 
+p {
+	text-align: center;
+	width: 90%;
+}
+
+.link {
+  display: block;	
+  margin-top: 40px;
+  margin-bottom: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+  width: 800px;
+  height: 50px;
+  text-align: center;
+  float: left;
+}
+
+.link a{
+  color: #0000ff;
+  font-size: 14px ;
+}
+
+#btn-shorten {
+	margin: 10px;
+}
