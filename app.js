@@ -56,8 +56,9 @@ app.post('/api/shorten', function(req, res){
         }
 
         shortUrl = config.webhost + base58.encode(newUrl._id);
-
+console.log(shortUrl);
         res.send({'shortUrl': shortUrl});
+
       });
     }
 

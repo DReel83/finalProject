@@ -1,5 +1,7 @@
 //Listen for the button click event
 $('#btn-shorten').on('click', function(){
+    //e.preventDefault();
+    //console.log();
 
   $.ajax({
     url: '/api/shorten',
@@ -9,9 +11,12 @@ $('#btn-shorten').on('click', function(){
     success: function(data){
         var resultHTML = '<a class="result" href="' + data.shortUrl + '">'
             + data.shortUrl + '</a>';
-        $('p').html(resultHTML);
-        $('p').hide().fadeIn('slow');
+
+        display = $('#link');
+        display.html(resultHTML);
+        console.log(data);
+        $('#link').hide().fadeIn('slow');
     }
   });
-
+return false;
 });
